@@ -1,0 +1,40 @@
+.navForm .input-field input[type=search]:not(.browser-default) ~ .material-icons {
+    display: none;
+}
+
+.navForm .input-field input[type=search]:focus:not(.browser-default) ~ .material-icons {
+    display: block;
+    color: #4285f4;
+    top:-8px
+}
+
+.navForm .input-field input[type=search]:not(.browser-default)+label i {
+    display: none;
+}
+
+.navForm .input-field input[type=search]:focus:not(.browser-default)+label i {
+    display: block;
+    color: #4285f4;
+    position: absolute;
+    top:-8px
+}
+
+@media only screen and (max-width: 600px) {
+    #leftTab {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .navForm .input-field input[type=search]:focus:not(.browser-default)+label i {
+        display: block;
+        color: #4285f4;
+        position: absolute;
+        top:-2px
+    }
+
+    .navForm .input-field input[type=search]:focus:not(.browser-default) ~ .material-icons {
+        display: block;
+        color: #4285f4;
+        top:-2px
+    }
+}
