@@ -12,19 +12,20 @@ class Search extends Component {
         if(typeof props.location.state === "undefined"){
             this.props.history.push('/');
         } else {
-            console.log(props.location.state)
+            this.props.history.push('/search/' + props.location.state.category);
+            //console.log(props.location.state.category)
         }
     }
     render(){
         return(
                 <div>
-                    <Navigation/>
-                    <ul>
-                        <li><Link to="/search">Web</Link></li>
-                        <li><Link to="/search/images">Images</Link></li>
-                        <li><Link to="/search/videos">Videos</Link></li>
-                        <li><Link to="/search/news">News</Link></li>
-                    </ul>
+                    <Navigation params={this.props.location.state}/>
+                    {/*<ul>*/}
+                        {/*<li><Link to="/search">Web</Link></li>*/}
+                        {/*<li><Link to="/search/images">Images</Link></li>*/}
+                        {/*<li><Link to="/search/videos">Videos</Link></li>*/}
+                        {/*<li><Link to="/search/news">News</Link></li>*/}
+                    {/*</ul>*/}
                     <Route exact path="/search" component={Web} />
                     <Route exact path="/search/images" component={Images} />
                     <Route exact path="/search/videos" component={Videos} />
