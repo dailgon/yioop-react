@@ -1,22 +1,28 @@
+/*right icon*/
 .navForm .input-field input[type=search]:not(.browser-default) ~ .material-icons {
     display: none;
 }
 
+/*right icon*/
 .navForm .input-field input[type=search]:focus:not(.browser-default) ~ .material-icons {
     display: block;
     color: #4285f4;
-    top:-8px
+    top:-8px;
 }
 
+/*left icon whgen hidden*/
 .navForm .input-field input[type=search]:not(.browser-default)+label i {
-    display: none;
+    display: block;
+    color:inherit;
+    position:relative;
+    top:-8px;
 }
 
 .navForm .input-field input[type=search]:focus:not(.browser-default)+label i {
     display: block;
     color: #4285f4;
     position: absolute;
-    top:-8px
+    top:-8px;
 }
 
 @media only screen and (max-width: 600px) {

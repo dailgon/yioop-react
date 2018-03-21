@@ -1,34 +1,8 @@
 import React, { Component } from 'react';
 import './Navigation.css';
 
-class Navigation extends Component {
-    constructor(props){
-        super(props);
+const Navigation = (props) => {
 
-        this.state = {
-            query: props.params.query,
-            category: props.params.category
-        };
-
-        this.changeCategoryHandler = this.changeCategoryHandler.bind(this);
-        this.changeQueryHandler = this.changeQueryHandler.bind(this);
-
-    }
-
-    changeCategoryHandler(t){
-        this.setState({
-            category: t
-        });
-        //this.props.history.push('/search');
-    }
-
-    changeQueryHandler(event) {
-        this.setState({
-            query: event.target.value
-        });
-    }
-
-	render(){
 		return(
 				<div>
                     <div className="container-fluid">
@@ -43,7 +17,7 @@ class Navigation extends Component {
                                     <div className="col s12 m10 offset-m1 l7" style={{paddingTop: "10px", paddingBottom: "10px"}}>
                                         <form className="navForm z-depth-1" style={{height: "48px"}} autoComplete="off">
                                             <div className="input-field">
-                                                <input className="white" type="search" value={this.state.query} onChange={this.changeQueryHandler} placeholder="Enter Search Query here" required style={{height: "48px"}} />
+                                                <input className="white" type="search" value={props.navState.query} onChange={props.changed} placeholder="Enter Search Query here" required style={{height: "48px"}} />
                                                     <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
                                                     <i className="material-icons">close</i>
                                             </div>
@@ -70,10 +44,10 @@ class Navigation extends Component {
                                     <div className="col s12 m1 l1 hide-on-small-only"></div>
                                     <div className="col s12 m6" id="leftTab" style={{padding: "0px",paddingLeft: "10px"}}>
                                         <ul className="tabs tabs-transparent">
-                                            <li className={(this.state.category === 'web') ? "tab active" : "tab"}><a onClick={this.changeCategoryHandler.bind(this, 'web')} className="grey-text text-darken-1" style={{fontWeight: "bold"}}>Web</a></li>
-                                            <li className={(this.state.category === 'images') ? "tab active" : "tab"}><a onClick={this.changeCategoryHandler.bind(this, 'images')} className="grey-text text-darken-1" style={{fontWeight: "bold"}}>Images</a></li>
-                                            <li className={(this.state.category === 'videos') ? "tab active" : "tab"}><a onClick={this.changeCategoryHandler.bind(this, 'videos')} className="grey-text text-darken-1" style={{fontWeight: "bold"}}>Videos</a></li>
-                                            <li className={(this.state.category === 'news') ? "tab active" : "tab"}><a onClick={this.changeCategoryHandler.bind(this, 'news')} className="grey-text text-darken-1" style={{fontWeight: "bold"}}>News</a></li>
+                                            <li className={(props.navState.category === 'web') ? "tab active" : "tab"}><a className="grey-text text-darken-1" style={{fontWeight: "bold"}}>Web</a></li>
+                                            <li className={(props.navState.category === 'images') ? "tab active" : "tab"}><a className="grey-text text-darken-1" style={{fontWeight: "bold"}}>Images</a></li>
+                                            <li className={(props.navState.category === 'videos') ? "tab active" : "tab"}><a className="grey-text text-darken-1" style={{fontWeight: "bold"}}>Videos</a></li>
+                                            <li className={(props.navState.category === 'news') ? "tab active" : "tab"}><a className="grey-text text-darken-1" style={{fontWeight: "bold"}}>News</a></li>
                                         </ul>
                                     </div>
                                     <a className="btn-floating btn-large halfway-fab waves-effect waves-light hide-on-small-only" style={{backgroundColor: "#4285f4"}}>
@@ -85,7 +59,7 @@ class Navigation extends Component {
                     </div>
 				</div>
 		);
-	}
+
 }
 
 export default Navigation;
