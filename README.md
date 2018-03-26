@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+Alternate Front End for Yioop Search Engine built with React, React-Router and Material Design.
 
 ## Available Scripts
 
