@@ -1,7 +1,7 @@
 Alternate Front End for Yioop Search Engine.
 
 ## Packages used
-react, react-dom, react-Router-dom, fetch-jsonp
+react, react-dom, react-router-dom, fetch-jsonp
 
 ## Design Methodology
 Material Design.
