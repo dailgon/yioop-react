@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link,} from 'react-router-dom';
+import Web from '../Web/Web';
+import Images from '../Images/Images';
+import Navigation from '../Navigation/Navigation';
 import News from '../News/News';
 import Videos from '../Videos/Videos';
-import Images from '../Images/Images';
-import Web from '../Web/Web';
-import Navigation from '../Navigation/Navigation';
 
 class Search extends Component {
     constructor(props) {
         super(props);
 //        console.log(props.location.search == '')
-        if(typeof props.location.state === "undefined" && props.location.search == ''){
+        if(typeof props.location.state === "undefined" && props.location.search === ''){
             //console.log('undefined state, redirecting to /')
             this.props.history.push('/');
             this.state = {
