@@ -1,4 +1,10 @@
-Alternate Front End for Yioop Search Engine built with React, React-Router and Material Design.
+Alternate Front End for Yioop Search Engine.
+
+## Packages used
+react, react-dom, react-router-dom, fetch-jsonp
+
+## Design Methodology
+Material Design.
 
 ## Available Scripts
 
