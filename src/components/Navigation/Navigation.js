@@ -1,5 +1,6 @@
 import React from 'react';
 import './Navigation.css';
+import { Link } from 'react-router-dom';
 
 const Navigation = (props) => {
 
@@ -10,9 +11,9 @@ const Navigation = (props) => {
                             <div className="nav-wrapper">
                                 <div className="row" style={{margin: "0px"}}>
                                     <div className="col s12 m12 l1">
-                                        <a className="brand-logo hide-on-med-and-down grey-text text-darken-1" >
+                                        <Link to="/" className="brand-logo hide-on-med-and-down grey-text text-darken-1" style={{cursor: 'pointer'}} >
                                             Yioop
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="col s12 m10 offset-m1 l7" style={{paddingTop: "10px", paddingBottom: "10px"}}>
                                         <form onSubmit={props.submitH} className="navForm z-depth-1" style={{height: "48px"}} autoComplete="off">

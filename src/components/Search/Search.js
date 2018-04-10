@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link,} from 'react-router-dom';
+//import { BrowserRouter as Router, Route, Link,} from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Web from '../Web/Web';
 import Images from '../Images/Images';
 import Navigation from '../Navigation/Navigation';
@@ -7,36 +8,53 @@ import News from '../News/News';
 import Videos from '../Videos/Videos';
 
 class Search extends Component {
+
     constructor(props) {
         super(props);
-//        console.log(props.location.search == '')
-        if(typeof props.location.state === "undefined" && props.location.search === ''){
-            //console.log('undefined state, redirecting to /')
-            this.props.history.push('/');
-            this.state = {
-                query: '',
-                category: 'web'
-            };
-        } else if(typeof props.location.state === "undefined" && props.location.search != '') {
-            console.log('state undefined, but cna fetch data from URL');
-        }
-        else {
-            //this.props.history.push('/search/' + props.location.state.category);
-            //console.log(props.location.state.category)
-            //console.log(this.props);
-            this.state = {
-                query: props.location.state.query,
-                category: props.location.state.category,
 
-            };
-        }
+        this.state = {
+            query: "",
+            category: "web"
+        };
+
         this.redirectTab = false;
+
+        //console.log("Search", props);
+
+        // check if props.location.pathname is legit
+        switch(props.location.pathname){
+            case '/search/web/':
+            case '/search/images/':
+            case '/search/videos/':
+            case '/search/news/':
+                // if no query go to "/"
+                if(props.location.search === "" || typeof props.location.search === 'undefined'){
+                    this.props.history.push('/');
+                    break;
+                }
+                // get category and query from URL
+                let categoryFromURL = String(props.location.pathname).substring(8);
+                let catLength = categoryFromURL.length;
+                categoryFromURL = categoryFromURL.slice(0, catLength-1);
+                let queryFromURL = props.location.search.substring(3).replace(/%20/g, " ");
+                this.state = {
+                    query: queryFromURL,
+                    category: categoryFromURL
+                };
+                break;
+            default:
+                // if URL category is invalid go to "/"
+                alert('Incorrect path');
+                this.props.history.push('/');
+        }
+
+        // end of constructor
     }
+
     queryHandler = (event) => {
         this.setState({
             query: event.target.value
         });
-        //console.log('query being changed');
     }
 
     categoryHandler = (cat) => {
@@ -44,14 +62,13 @@ class Search extends Component {
             category: cat,
         });
         this.redirectTab = true;
-        //console.log('New category' + this.state.category);
     }
 
     submitHandler = (event) => {
+        console.log("Search.js: SubmitHandler pressed");
         this.props.history.push({
             pathname: '/search/' + this.state.category + '/',
-            search: 'q=' + this.state.query,
-            state: this.state
+            search: 'q=' + this.state.query
         });
         event.preventDefault();
     }
@@ -68,7 +85,13 @@ class Search extends Component {
     }
 
     render(){
-        //console.log(this.state);
+        // checking if query changed
+       // let newPossibleQuery = String(this.props.location.search.substring(3).replace(/%20/g, " "));
+//        if(this.state.query !== newPossibleQuery){
+//            console.log('Detected new URL');
+//            //this.updateResults(newPossibleQuery)
+//        }
+        //console.log(newPossibleQuery);
         return(
                 <div>
                     {/*<Navigation params={this.props.location.state}/>*/}

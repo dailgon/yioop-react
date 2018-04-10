@@ -9,7 +9,7 @@ class Images extends Component {
         console.log('Loading API data for Images');
     }
     componentWillUnmount(){
-        console.log('Unmounting Web for Images');
+        console.log('Unmounting Search/Images Component');
     }
     render(){
         //console.log(this.props.location.state);
