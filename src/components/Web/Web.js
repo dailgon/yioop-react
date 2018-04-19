@@ -96,7 +96,6 @@ class Web extends Component {
         } else {
             return (
                     <div>
-                        <h5>Showing Results for : {this.state.query}</h5>
                         <ul>
                             {searchResults.map(item => (
                                     <li key={"searchResult" + Math.floor(Math.random() * 1000000)}>
@@ -112,33 +111,17 @@ class Web extends Component {
                                     <p className="grey-text">
                                         About <span>{this.state.resultsCount}</span> results
                                     </p>
+                                    <h5 className="black-text">
+                                        Showing Results for <span style={{color: 'rgb(26, 13, 171)'}}> {this.state.query} </span>
+                                    </h5>
                                 </div>
-                            </div>
-                            <div className="row" style={{marginBottom:"0px"}}>
-                                <div className="col s12 m1 hide-on-small-only" />
-                                <div className="col s12 m10 l7 card" style={{paddingTop: "10px"}}>
-                                    <a style={{padding:"0px",margin:"0px",color:"#1a0dab",fontSize:"1.2em"}}>Sdf |
-                                        DoubleClick Bid Manager | Google Developers</a>
-                                    <p style={{color:"#006621",fontSize:"1em",padding:"0px",margin:"0px"}}>https://developers.google.com/bid-manager/v1/sdf</p>
-                                    <div style={{paddingTop:"4px",margin:"0px"}}>
-                                        <div className="chip hoverable">apple</div>
-                                        <div className="chip hoverable">answers</div>
-                                        <div className="chip hoverable">computer</div>
-                                        <div className="chip hoverable">consumer</div>
-                                        <div className="chip hoverable">browser</div>
-                                    </div>
-                                    <p style={{marginTop:"0px"}}>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown printer took a galley of type and scrambled it to make a type specimen
-                                        book. It has
-                                        survived not only five centuries, but also the leap into electronic typesetting.
-                                    </p>
-                                </div>
+                                {/*<div className="col s12 m11">*/}
+                                    {/*<h5>Showing Results for : {this.state.query}</h5>*/}
+                                {/*</div>*/}
                             </div>
                             <div className="row" style={{marginBottom:"0px"}}>
                                 <div className="col s12 m1 hide-on-small-only"></div>
-                                <div className="col s12 m10 l7 card" style={{paddingTop:"10px"}}>
+                                <div className="col s12 m10 l7" style={{paddingTop:"10px"}}>
                                     <a style={{padding:"0px",margin:"0px",color:"#1a0dab",fontSize:"1.2em"}}>Sdf |
                                         DoubleClick Bid Manager | Google Developers</a>
                                     <p style={{color:"#006621",fontSize:"1em",padding:"0px",margin:"0px"}}>https://developers.google.com/bid-manager/v1/sdf</p>
