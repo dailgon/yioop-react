@@ -49,6 +49,7 @@ class Web extends Component {
         .then(
                 (result) => {
                     if(result.totalResults !== 0){
+//                        console.log(result);
                         this.setState({
                             query: query,
                             isLoaded: true,
@@ -77,13 +78,13 @@ class Web extends Component {
     }
 
 	render(){
+
         //console.log(this.state);
         // checking if query changed
-
         let newPossibleQuery = String(this.props.location.search.substring(3).replace(/%20/g, " "));
         if (this.state.query !== newPossibleQuery) {
-//            console.log('Detected new URL');
-//            console.log(this.state.query, " -> ", newPossibleQuery)
+        //    console.log('Detected new URL');
+        //    console.log(this.state.query, " -> ", newPossibleQuery)
             this.updateResults(newPossibleQuery);
         }
 
@@ -96,14 +97,6 @@ class Web extends Component {
         } else {
             return (
                     <div>
-                        <ul>
-                            {searchResults.map(item => (
-                                    <li key={"searchResult" + Math.floor(Math.random() * 1000000)}>
-                                        {item.title}
-                                        {item.link}
-                                    </li>
-                            ))}
-                        </ul>
                         <div className="container-fluid" style={{padding:"10px"}}>
                             <div className="row" style={{marginBottom:"0px"}}>
                                 <div className="col s12 m1 hide-on-small-only" />
@@ -119,28 +112,21 @@ class Web extends Component {
                                     {/*<h5>Showing Results for : {this.state.query}</h5>*/}
                                 {/*</div>*/}
                             </div>
-                            <div className="row" style={{marginBottom:"0px"}}>
-                                <div className="col s12 m1 hide-on-small-only"></div>
-                                <div className="col s12 m10 l7" style={{paddingTop:"10px"}}>
-                                    <a style={{padding:"0px",margin:"0px",color:"#1a0dab",fontSize:"1.2em"}}>Sdf |
-                                        DoubleClick Bid Manager | Google Developers</a>
-                                    <p style={{color:"#006621",fontSize:"1em",padding:"0px",margin:"0px"}}>https://developers.google.com/bid-manager/v1/sdf</p>
-                                    <div style={{paddingTop:"4px",margin:"0px"}}>
-                                        <div className="chip hoverable">apple</div>
-                                        <div className="chip hoverable">answers</div>
-                                        <div className="chip hoverable">computer</div>
-                                        <div className="chip hoverable">consumer</div>
-                                        <div className="chip hoverable">browser</div>
+
+                            {/* Rendering results*/}
+                            {searchResults.map(item => (
+                                    <div key={"searchResult" + Math.floor(Math.random() * 1000000)} className="row" style={{marginBottom:"0px"}}>
+                                        <div className="col s12 m1 hide-on-small-only"></div>
+                                        <div className="col s12 m10 l7" style={{paddingTop:"10px"}}>
+                                            <a href={item.link} style={{padding:"0px",margin:"0px",color:"#1a0dab",fontSize:"1.2em"}}>{item.title}</a>
+                                            <p style={{color:"#006621",fontSize:"1em",padding:"0px",margin:"0px"}}>{item.link}</p>
+                                            <p style={{marginTop:"0px"}}>
+                                                {item.description}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <p style={{marginTop:"0px"}}>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                        unknown printer took a galley of type and scrambled it to make a type specimen
-                                        book. It has
-                                        survived not only five centuries, but also the leap into electronic typesetting.
-                                    </p>
-                                </div>
-                            </div>
+                            ))}
+
                         </div>
                     </div>
             );
