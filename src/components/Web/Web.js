@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import fetchJsonp from 'fetch-jsonp';
-
 class Web extends Component {
 
     constructor(props){
@@ -49,7 +48,7 @@ class Web extends Component {
         .then(
                 (result) => {
                     if(result.totalResults !== 0){
-//                        console.log(result);
+                    //  console.log(result);
                         this.setState({
                             query: query,
                             isLoaded: true,
@@ -128,6 +127,24 @@ class Web extends Component {
                             ))}
 
                         </div>
+                        <div className="row" style={{marginBottom:"0px"}}>
+                            <div className="row" style={{marginBottom:"0px"}} style={{textAlign:'center'}}>
+                                <div className="col s12">
+                                    <ul className="pagination">
+                                        <li className="disabled"><a href="#!"><i className="material-icons">chevron_left</i></a>
+                                        </li>
+                                        <li className="active"><a href="#!">1</a></li>
+                                        <li className="waves-effect"><a href="#!">2</a></li>
+                                        <li className="waves-effect"><a href="#!">3</a></li>
+                                        <li className="waves-effect"><a href="#!">4</a></li>
+                                        <li className="waves-effect"><a href="#!">5</a></li>
+                                        <li className="waves-effect"><a href="#!"><i
+                                                className="material-icons">chevron_right</i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
             );
         }
