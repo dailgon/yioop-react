@@ -1,4 +1,4 @@
-Alternate Front End for Yioop Search Engine. [UNDER ACTIVE DEVELOPMENT]
+Alternate Front End for Yioop Search Engine. [DEVELOPMENT ON HOLD :(]
 
 ## Packages used
 react, react-dom, react-router-dom, fetch-jsonp
